@@ -1,0 +1,68 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<!-- transaction -->
+<div class="home-about w3ls-section ">
+    <div class="container ">
+        <!-- transaction top-->
+        <div class="w3ls-about agile-section text-dark">
+                <div class="w3-agileits-about-grids bg-primary ">
+                    <div class="col-md-12 col-sm-12 col-xs-12 agileits-title bg-primary text-dark">
+                        <h3 class="text-white">Transaction History </h3> 
+                    </div>
+        
+        <!-- //transaction top-->
+        <!-- transaction bottom-->
+        <div class="about-bottom text-dark">
+            <form action="{% url 'transaction' %}" method="post">
+                {% csrf_token %}
+    
+    <table class="table table-bordered table-primary table-hover">
+        <thead class="thead-dark">
+        <tr>
+            
+            <th style="color:white;" height="30px">Sender_Name</th>
+            <th style="color:white;" width="200px">Sender_updated_Balance</th>
+            <th style="color:white;">Amount_Transfer</th>
+            <th style="color:white;">Reciver_Name</th>
+            <th style="color:white;">Reciver_updated_Balance</th>
+
+        </tr>
+        </thead>
+        <tbody>
+            {% for i in history %}
+                    <tr>
+                        
+                        <td style="color: black;">{{ i.Sender_Name }}</td>
+                        <td style="color: black;">{{ i.Sender_updated_Balance }}</td>
+                        <td style="color: black;">{{ i.Amount_Transfer }}</td>
+                        <td style="color: black;">{{ i.Reciver_Name}}</td>
+                        <td style="color: black;">{{ i.Receiver_updated_Balance}}</td>
+                    </tr>
+                    
+            {% endfor %}
+            
+        </tbody>
+        
+    </table>
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>	
+    <!-- //transaction-bottom -->
+    <!-- transaction-bottom-grid -->
+    <div class="wthree-about-bot-grid-sec">
+        
+       
+        <div class="clearfix"> </div>
+    </div>
+    <!-- //transaction-bottom-grid-->
+</div>
+<!-- //transaction -->
+
+{% endblock %}
+
+

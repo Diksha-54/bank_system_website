@@ -1,0 +1,88 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<!-- transfer -->
+<div class="home-about w3ls-section ">
+    <div class="container ">
+        <!-- transfer top-->
+        <div class="w3ls-about agile-section text-dark">
+                <div class="w3-agileits-about-grids  ">
+                    <div class="col-md-12 col-sm-12 col-xs-12 agileits-title bg-info text-dark">
+                        <h3 class="text-white">Transfer Money</h3> 
+                    </div>
+        
+        
+                    
+                    
+               
+        
+        <!-- //transfer top-->
+        <!-- transfer bottom-->
+        <div class="about-bottom text-dark">
+            {% if messages %}
+               {% for message in messages %}
+
+               <div class="alert alert-success alert alert-error ">
+                   {{ message }}
+               </div>
+
+               {% endfor %}
+               {% endif %}
+
+               
+            <form action="{% url 'transfer' %}" method="post">
+                {% csrf_token %}
+        <table class="table table-bordered table-primary table-hover">
+            <tr>
+                <td style="color: black;"><label>Sender : </label></td>
+                <td style="color: black;"><select name="s_id" id="" >
+                    {% for i in data %}
+                     <option value ="{{i.id }}">{{i.Account_holder}}</option>
+                    {% endfor %}
+                     
+                     </select>
+                 </td>
+                 </tr>
+            <tr>
+            <tr>
+                <td style="color: black;"><label>Receiver :</label></td>
+                <td style="color: black;"><select name="r_id" id=""  >
+                    {% for i in data %}
+                    
+                    <option value ="{{i.id }}">{{i.Account_holder}}</option>
+                    
+                    {% endfor %}
+                     
+                     </select>
+                 </td>
+                 </tr>
+            <tr>
+                <td style="color: black;">Amount</td>
+                <td style="color: black;"> <input type="int" name="Amount" id=""> <br/></td>
+            </tr>
+            
+            <tr>
+                
+                <td></td>
+                <td style="color: black;"> <input type="submit" value="Transfer"  id=""> <br/></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>	
+    <!-- //transfer-bottom -->
+    <!-- transfer-bottom-grid -->
+    <div class="wthree-about-bot-grid-sec">
+        
+       
+        <div class="clearfix"> </div>
+    </div>
+    <!-- //transfer-bottom-grid-->
+</div>
+<!-- //transfer -->
+
+{% endblock %}
