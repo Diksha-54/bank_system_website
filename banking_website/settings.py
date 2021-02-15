@@ -25,7 +25,7 @@ SECRET_KEY = 'd!&oovq#_=9mdim9_q2n0k-j!16kn$!==3c+iz36qkfdmw&5+s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['intense-plateau-81836.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['bank-web.herokuapp.com','127.0.0.1']
 
 
 # Application definition
